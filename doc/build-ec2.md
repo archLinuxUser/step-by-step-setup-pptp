@@ -4,7 +4,7 @@
   
 1. Start the Amazon EC2 server that was setup  
 From the video [YouTube Video](https://www.youtube.com/watch?v=1hYPnUI9--c)  
-Or you can use whatever Ubuntu-based Linux you may have (i.e. other VPS provider)  
+Or you can use whatever Ubuntu-based Linux you may have (i.e. other VPS providers)  
  
 2. Connect to the Amazon EC2 server  
 ssh -i nameOfThePEMfile.pem ubuntu@ipaddress  (use putty on Windows)  
@@ -20,10 +20,12 @@ sudo apt-get install pptpd git
 (working directory exists if using the previous EC2)  
 `git clone https://github.com/archLinuxUser/step-by-step-setup-pptp.git`  
 
-5. Copy files from configFilesForPPTP/*  to  /etc/  (overwrite existing files)  
+###Going to switch to root user for ease
+
+5. Copy files from configFilesForPPTP/*  to  /etc/ppp/  (overwrite existing files)  
 ```
 sudo su  
-cd /etc  
+cd /etc/ppp  
 cp -vr ~/git/step-by-step-setup-pptp/configFilesForPPTP/* ./  
 ```
 
@@ -33,11 +35,19 @@ grep "net.ipv4.ip_forward" /etc/sysctl.conf  #show the line
 sed -i.original 's/^#net.ipv4.ip_forward/net.ipv4.ip_forward/' /etc/sysctl.conf  
 #line above removes the # comment symbol  
 grep "net.ipv4.ip_forward" /etc/sysctl.conf  #show the line again
+sysctl -p  #make the change active and permanent
 ```  
+
 7. Install iptables-persistent to save iptables changes
 a. sudo apt-get install iptables-persistent
 
-8. Test the PPTP VPN from your cell phone or Windws PC
+8. Test the PPTP VPN from your Android cell phone or Windws PC/laptop
+```  
+nano /etc/ppp/chap-secrets   #PLEASE change the username/password before using
+wget -qO- http://whatismyip.org |grep -A1 "IP Address"   #IP address is on 2nd line
+```  
+screenshots of setting up [Windows](../screenshots/Windows/)
+screenshots of setting up [Android Celfons/tablets](../screenshots/Android/)
 
 9. Save a backup of the AWS EC2 instance  
 a. Amazon AWS EC2 dashboard/instances  
