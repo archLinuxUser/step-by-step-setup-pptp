@@ -11,7 +11,11 @@ The Point-to-Point Tunneling Protocol (PPTP) is a method for implementing virtua
 For more information on PPTP; please refer to https://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol  
 
 ```
-**Note:**  PPTP is not the most secure VPN; however, please consider than any VPN is better than none.  For more information on PPTP security; please refer to https://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol#Security
+**Note:**  PPTP is not the most secure VPN.
+Having said that; please consider that any VPN
+is **much better** than no VPN.
+For more information on PPTP security; please refer to
+https://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol#Security
 ```
 
 License
