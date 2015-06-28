@@ -24,7 +24,7 @@ sudo apt-get install pptpd git
 ###Going to switch to root user for ease
 ------------------- 
 
-5. Copy files from configFilesForPPTP/*  to  /etc/  (overwrite existing files)  
+5. Copy files from [../configFilesForPPTP](../configFilesForPPTP/*)  to  /etc/  (overwrite existing files)  
 ```
 sudo su  
 cd /etc  
